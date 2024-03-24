@@ -7,3 +7,4 @@ class AppConfig(BaseAppConfig):
     name = "pinax.notifications"
     label = "pinax_notifications"
     verbose_name = _("Pinax Notifications")
+    default_auto_field = 'django.db.models.AutoField'  # BigAutoField when ready to add migration.

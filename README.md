@@ -70,11 +70,10 @@ configurable options as to how those notifications are to be received. `pinax-no
 
 #### Supported Django and Python Versions
 
-Django / Python | 3.6 | 3.7 | 3.8
---------------- | --- | --- | ---
-2.2  |  *  |  *  |  *
-3.0  |  *  |  *  |  *
-
+Django / Python | 3.8 | 3.8 | 3.10
+--------------- |-----|-----| ---
+3.2  | *   | *   |  *
+4.2  | *   | *   |  *
 
 ## Documentation
 
