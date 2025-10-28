@@ -1,0 +1,8 @@
+[build-system]
+# Use the PEP 517/518 standardized build interface so modern pip will build
+# this project without falling back to the legacy setup.py build.
+requires = [
+  "setuptools>=61",  # PEP 621/modern metadata support and build backend
+  "wheel>=0.37",     # ensure wheel is available when building wheels
+]
+build-backend = "setuptools.build_meta"
