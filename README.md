@@ -70,10 +70,9 @@ configurable options as to how those notifications are to be received. `pinax-no
 
 #### Supported Django and Python Versions
 
-Django / Python | 3.8 | 3.8 | 3.10
---------------- |-----|-----| ---
-3.2  | *   | *   |  *
-4.2  | *   | *   |  *
+Django / Python | 3.12
+--------------- |-----
+5.2  | *   
 
 ## Documentation
 
@@ -483,6 +482,10 @@ urlpatterns = [
 ```
 
 ## Change Log
+
+### 7.0.0
+
+* Upgrade minimum Django version to 5.2 and Python version to 3.12
 
 ### 6.0.0
 

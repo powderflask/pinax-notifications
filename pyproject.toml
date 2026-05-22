@@ -1,8 +1,75 @@
 [build-system]
-# Use the PEP 517/518 standardized build interface so modern pip will build
-# this project without falling back to the legacy setup.py build.
-requires = [
-  "setuptools>=61",  # PEP 621/modern metadata support and build backend
-  "wheel>=0.37",     # ensure wheel is available when building wheels
-]
+requires = ["setuptools>=61.0", "wheel"]
 build-backend = "setuptools.build_meta"
+
+[project]
+name = "pinax-notifications"
+version = "6.0.0"
+description = "User notification management for the Django web framework"
+readme = "README.md"
+authors = [
+    {name = "Pinax Team", email = "team@pinaxproject.com"},
+]
+license = {text = "MIT"}
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Environment :: Web Environment",
+    "Framework :: Django",
+    "Framework :: Django :: 5.2",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+]
+requires-python = ">=3.12"
+dependencies = [
+    "django>=5.2",
+    "django-appconf>=1.0.1",
+]
+
+[project.optional-dependencies]
+test = [
+    "pinax-templates>=1.0.0",
+    "coverage<5",
+]
+
+[project.urls]
+Homepage = "http://github.com/pinax/pinax-notifications/"
+
+[tool.setuptools]
+packages = ["pinax.notifications"]
+package-dir = {"" = "."}
+include-package-data = true
+
+[tool.setuptools.package-data]
+"pinax.notifications" = ["locale/**/**/*", "templates/pinax/notifications/*"]
+
+[tool.isort]
+multi_line_output = 3
+known_django = "django"
+known_third_party = ["appconf", "pinax"]
+sections = ["FUTURE", "STDLIB", "DJANGO", "THIRDPARTY", "FIRSTPARTY", "LOCALFOLDER"]
+include_trailing_comma = true
+skip_glob = ["**/*/migrations/*"]
+
+[tool.coverage.run]
+source = ["pinax"]
+omit = ["**/*/conf.py", "**/*/tests/*", "**/*/migrations/*", "**/*/admin.py"]
+branch = true
+data_file = ".coverage"
+
+[tool.coverage.report]
+omit = ["**/*/conf.py", "**/*/tests/*", "**/*/migrations/*", "**/*/admin.py"]
+exclude_lines = [
+    "coverage: omit",
+]
+show_missing = true
+
+[dependency-groups]
+dev = [
+    "setuptools<82",  # only required for pinax-templates which imports pkg_resources
+]
