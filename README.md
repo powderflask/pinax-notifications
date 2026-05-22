@@ -483,9 +483,11 @@ urlpatterns = [
 
 ## Change Log
 
-### 7.0.0
+### 6.2.0
 
 * Upgrade minimum Django version to 5.2 and Python version to 3.12
+* Drop support for unsupported Django and Python versions
+* Update packaging configs
 
 ### 6.0.0
 
